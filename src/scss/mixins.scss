@@ -1,0 +1,12 @@
+@mixin btn-before {
+  content: '';
+  position: absolute;
+  display: block;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}

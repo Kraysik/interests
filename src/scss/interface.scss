@@ -1,0 +1,16 @@
+body {
+  font-feature-settings: "kern";
+  font-kerning: normal;
+  font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: 100%;
+  overflow-scrolling: touch;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  max-width: 680px;
+  width: 100%;
+  margin: 0 auto;
+}

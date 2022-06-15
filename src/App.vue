@@ -1,28 +1,32 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div id="app" class="container">
+    <MyHobby :extra-hobby="extraHobby" />
+    <StrangerHobby @addHobbyToMyList="handleAddHobbyToMyList" />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import MyHobby from "@/components/myHobby/MyHobby";
+import StrangerHobby from "@/components/strangerHobby/StrangerHobby";
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    StrangerHobby,
+    MyHobby,
+  },
+  data() {
+    return {
+      extraHobby: {},
+    };
+  },
+  methods: {
+    handleAddHobbyToMyList(hobby) {
+      this.extraHobby = hobby;
+    },
   },
 };
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import "./src/scss/app";
 </style>

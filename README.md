@@ -1,4 +1,4 @@
-# v-hobby-test
+# Тестовое задание "Интересы".
 
 ## Project setup
 ```
@@ -11,14 +11,8 @@ yarn serve
 ```
 
 ### Compiles and minifies for production
+Скопировать `.env.example` в `.env`. Указать путь до папки `dist`, если есть необходимость посмотреть скомпиленый пример.
 ```
 yarn build
 ```
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

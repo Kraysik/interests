@@ -1,0 +1,181 @@
+@use "~@/scss/mixins.scss";
+
+.hobby_block {
+  margin-top: 50px;
+  &__title {
+    font-weight: 400;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    span {
+      padding-right: 10px;
+    }
+    &:after {
+      content: '';
+      width: 100%;
+      height: 1px;
+      border-bottom: 1px dashed black;
+    }
+  }
+
+  .content {
+    margin-left: 25px;
+  }
+
+  .hobbies {
+    margin-top: 25px;
+
+    .text-block {
+      position: relative;
+      &:not(:last-of-type) {
+        margin-bottom: 10px;
+      }
+
+      .delete-btn, .add-btn {
+        position: absolute;
+        left: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 20px;
+        width: 20px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .15s ease;
+        z-index: 1;
+
+        &:before {
+          content: '';
+          display: block;
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          background-image: url(~@/assets/close.png);
+          background-position: center center;
+          background-repeat: no-repeat;
+        }
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .add-btn:before {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      &:hover {
+        .delete-btn, .add-btn {
+          opacity: 1;
+          pointer-events: all;
+        }
+      }
+
+      .text {
+        margin-right: 10px;
+        overflow: hidden;
+        white-space: nowrap;
+        position: relative;
+      }
+    }
+
+    .text_wrap {
+      display: flex;
+      flex-wrap: wrap;
+
+      &:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: block;
+        width: 100px;
+        height: 20px;
+        background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 90%);
+        pointer-events: none;
+        z-index: 0;
+      }
+    }
+  }
+
+  .more {
+    margin-top: 15px;
+    color: tomato;
+    text-decoration: underline;
+    transition: color .15s ease;
+    width: fit-content;
+    &:hover {
+      cursor: pointer;
+      color: darken(tomato, 20%);
+    }
+
+    &.loading {
+      pointer-events: none;
+      filter: grayscale(1);
+    }
+  }
+
+  .added-info {
+    position: relative;
+    margin-left: 20px;
+    color: green;
+    width: fit-content;
+    z-index: 2;
+
+    &:before {
+      @include mixins.btn-before;
+      background-image: url(~@/assets/ok.png);
+    }
+  }
+
+  .abuse-btn {
+    position: relative;
+    margin-left: 20px;
+    width: fit-content;
+    height: 20px;
+    color: darken(#ccc, 15%);
+    z-index: 2;
+    opacity: 0;
+    pointer-events: none;
+
+    &:hover {
+      cursor: pointer;
+      color: darken(#ccc, 25%);
+    }
+
+    &:before {
+      @include mixins.btn-before;
+      background-image: url(~@/assets/warn.png);
+    }
+  }
+
+  .hobbies {
+    .stranger-hobby {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      //overflow: hidden;
+
+      &:not(:last-of-type) {
+        margin-bottom: 10px;
+      }
+
+      .text-block {
+        width: 100%;
+        margin-bottom: 0;
+      }
+
+      &:hover {
+        .text-block {
+          width: 490px;
+        }
+        .abuse-btn {
+          opacity: 1;
+          pointer-events: all;
+        }
+      }
+    }
+  }
+}
